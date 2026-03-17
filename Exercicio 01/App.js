@@ -1,7 +1,7 @@
 import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context';
 import { ImageBackground, View, StyleSheet } from 'react-native';
 import React from 'react';
-import { FilmesScreen } from './view/filmeView';
+import FilmesScreen from './view/filmeView';
 
 export default function App() {
   return (
