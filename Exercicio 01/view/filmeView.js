@@ -1,9 +1,9 @@
 import React from "react";
-import { View, Text, TextInput, Button, FlatList, StyleSheet } from "react-native";
-import { useFilmesViewModel } from "../viewModel/filmeViewModel";
+import { View, Text, TextInput, Button, FlatList, StyleSheet, TouchableOpacity } from "react-native";
+import { UseFilmesViewModel } from "../viewModel/filmeViewModel";
 
 export default function FilmesScreen() {
-  const vm = useFilmesViewModel();
+  const vm = UseFilmesViewModel();
   return (
     <View style={styles.container}>
       <Text style={styles.titulo}>Minha WatchList</Text>
@@ -27,6 +27,9 @@ export default function FilmesScreen() {
         renderItem={({ item }) => (
           <View style={styles.item}>
             <Text style={styles.itemTexto}>{item.titulo}</Text>
+            <TouchableOpacity style={styles.botaoExcluir} onPress={() => vm.removerFilme(item.id)} activeOpacity={0.6}>
+              <Text style={styles.textoExcluir}>Excluir</Text>
+            </TouchableOpacity>
           </View>
         )}
       />
@@ -35,6 +38,18 @@ export default function FilmesScreen() {
 }
 
 const styles = StyleSheet.create({
+  botaoExcluir: {
+    backgroundColor: 'red',
+    padding: 10,
+    borderRadius: 7,
+  },
+
+  textoExcluir: {
+    color: '#fff',
+    textAlign: 'center',
+    fontSize: 13,
+  },
+
   container: {
     flex: 1,
     padding: 16,
@@ -44,7 +59,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 16,
     textAlign: 'center',
-    color: '#222',
+    color: '#ffff',
   },
   input: {
     borderWidth: 1,
@@ -69,9 +84,13 @@ const styles = StyleSheet.create({
     marginBottom: 8,
     borderWidth: 1,
     borderColor: '#ddd',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   itemTexto: {
     fontSize: 16,
     color: '#333',
+    flexDirection: 'row',
+    flex: 1,
   },
 });
