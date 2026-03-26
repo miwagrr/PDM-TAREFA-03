@@ -1,21 +1,24 @@
 import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context';
+import { NavigationContainer } from "@react-navigation/native";
 import { ImageBackground, View, StyleSheet } from 'react-native';
 import React from 'react';
-import FilmesScreen from './view/filmeView';
+import { StackNavigator } from './navigation/StackNavigator';
 
 export default function App() {
   return (
     <SafeAreaProvider>
-      <ImageBackground 
-        source={{uri: 'https://4kwallpapers.com/images/wallpapers/dune-2-2024-movies-1242x2208-13967.jpg'}}
-        style={{ flex: 1 }}
-      >
-        <SafeAreaView style={{ flex: 1 }}>
-          <View style={styles.container}>
-            <FilmesScreen />
-          </View>
-        </SafeAreaView>
-      </ImageBackground>
+      <NavigationContainer>
+        <ImageBackground 
+          source={{uri: 'https://4kwallpapers.com/images/wallpapers/dune-2-2024-movies-1242x2208-13967.jpg'}}
+          style={{ flex: 1 }}
+        >
+          <SafeAreaView style={{ flex: 1 }}>
+            <View style={styles.container}>
+              <StackNavigator/>
+            </View>
+          </SafeAreaView>
+        </ImageBackground>
+      </NavigationContainer>
     </SafeAreaProvider>
   );
 }
