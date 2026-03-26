@@ -8,6 +8,10 @@ export function UseFilmesViewModel() {
   const [erro, setErro] = useState(null);
   const [tituloInput, setTituloInput] = useState("");
 
+  function recarregar() {
+    setFilmes(business.listar());
+  }
+
   function adicionarFilme() {
     try {
       business.addFilme(tituloInput, filmes);
@@ -31,5 +35,6 @@ export function UseFilmesViewModel() {
     setTituloInput,
     adicionarFilme,
     removerFilme,
+    recarregar,
   };
 }
