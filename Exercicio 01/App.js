@@ -2,7 +2,7 @@ import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context';
 import { NavigationContainer } from "@react-navigation/native";
 import { ImageBackground, View, StyleSheet } from 'react-native';
 import React from 'react';
-import { StackNavigator } from './navigation/StackNavigator';
+import { TabNavigator } from './navigation/TabNavigator';
 
 export default function App() {
   return (
@@ -14,7 +14,7 @@ export default function App() {
         >
           <SafeAreaView style={{ flex: 1 }}>
             <View style={styles.container}>
-              <StackNavigator/>
+              <TabNavigator />
             </View>
           </SafeAreaView>
         </ImageBackground>
