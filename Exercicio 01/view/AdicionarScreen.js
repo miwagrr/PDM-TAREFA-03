@@ -7,12 +7,12 @@ export default function AdicionarScreen() {
   const navigation = useNavigation();
   const vm = UseFilmesViewModel();
 
-  function handleAdicionar() {
-    vm.adicionarFilme();
-    if (!vm.erro) {
-      navigation.goBack();
-    }
+function handleAdicionar() {
+  const sucesso = vm.adicionarFilme();
+  if (sucesso) {
+    navigation.goBack();
   }
+}
 
   return (
     <View style={styles.container}>
