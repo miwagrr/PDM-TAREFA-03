@@ -12,16 +12,18 @@ export function UseFilmesViewModel() {
     setFilmes(business.listar());
   }
 
-  function adicionarFilme() {
-    try {
-      business.addFilme(tituloInput, filmes);
-      setFilmes(business.listar());
-      setErro(null);
-      setTituloInput("");
-    } catch (e) {
-      setErro(e.message);
-    }
+function adicionarFilme() {
+  try {
+    business.addFilme(tituloInput, filmes);
+    setFilmes(business.listar());
+    setErro(null);
+    setTituloInput("");
+    return true;
+  } catch (e) {
+    setErro(e.message);
+    return false;
   }
+}
 
   function removerFilme(id) {
     business.removerFilme(id);
